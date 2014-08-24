@@ -15,13 +15,16 @@ import javax.annotation.Resource;
  * Created by jiangshan on 14/8/20.
  */
 @RunWith(SpringJUnit4ClassRunner.class)		//表示继承了SpringJUnit4ClassRunner类
-@ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
+@ContextConfiguration(locations = {"classpath*:spring-*.xml"})
 public class TestSpringWithMyBatis {
 
     private static Logger      logger      = Logger.getLogger(TestSpringWithMyBatis.class);
     //	private ApplicationContext ac = null;
-    @Resource
-    private        UserService userService = null;
+//    @Resource
+    private        UserService userService = BoomServiceLocators.getUserService();
+//    public void setUserService(UserService userService){
+//        this.userService = userService;
+//    }
 
 //	@Before
 //	public void before() {
